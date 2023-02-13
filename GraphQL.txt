@@ -1,0 +1,31 @@
+﻿type Query
+{
+    allUsers(last:Int):[User!]!
+    allPosts(last:Int):[Post!]!
+}
+
+type Mutation
+{
+    createUser(name:String !, age:Int!):User!
+    updateUser(id:ID !, name:String !, age:String!):
+    User!
+}
+
+type Subscription
+{
+    newUser:User!
+}
+
+type User
+{
+    id:ID!
+    name: String!
+    age: Int!
+    posts: [Post!]!
+}
+
+type Post
+{
+    title: String
+    author:User!
+}
